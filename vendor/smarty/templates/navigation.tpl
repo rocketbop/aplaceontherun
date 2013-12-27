@@ -28,14 +28,15 @@
               </ul>
             </li>
           </ul>
-          <form class="navbar-form navbar-right">
+
+          <form class="navbar-form navbar-right" action="login.php" method="post">
             <div class="form-group">
-              <input type="text" placeholder="Email" class="form-control">
+              <input type="text" placeholder="Username" for="username" name="username" id="username" class="form-control">
             </div>
             <div class="form-group">
-              <input type="password" placeholder="Password" class="form-control">
+              <input type="password" placeholder="Password" for="username" name="password" id="password" class="form-control">
             </div>
-            <button type="submit" class="btn btn-success">Sign in</button>
+            <input type="submit" class="btn btn-success" value="Login">
           </form>
         </div><!--/.navbar-collapse -->
       </div>

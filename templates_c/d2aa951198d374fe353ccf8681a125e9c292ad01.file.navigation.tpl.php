@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.16, created on 2013-12-27 20:29:19
+<?php /* Smarty version Smarty-3.1.16, created on 2013-12-27 22:44:49
          compiled from "vendor/smarty/templates/navigation.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:44476316352bdbdfa66b040-24215209%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'd2aa951198d374fe353ccf8681a125e9c292ad01' => 
     array (
       0 => 'vendor/smarty/templates/navigation.tpl',
-      1 => 1388172558,
+      1 => 1388180688,
       2 => 'file',
     ),
   ),
@@ -49,14 +49,15 @@ $_valid = $_smarty_tpl->decodeProperties(array (
               </ul>
             </li>
           </ul>
-          <form class="navbar-form navbar-right">
+
+          <form class="navbar-form navbar-right" action="login.php" method="post">
             <div class="form-group">
-              <input type="text" placeholder="Email" class="form-control">
+              <input type="text" placeholder="Username" for="username" name="username" id="username" class="form-control">
             </div>
             <div class="form-group">
-              <input type="password" placeholder="Password" class="form-control">
+              <input type="password" placeholder="Password" for="username" name="password" id="password" class="form-control">
             </div>
-            <button type="submit" class="btn btn-success">Sign in</button>
+            <input type="submit" class="btn btn-success" value="Login">
           </form>
         </div><!--/.navbar-collapse -->
       </div>
