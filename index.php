@@ -6,4 +6,10 @@ define('SMARTY_DIR', 'vendor/smarty/');
 require_once(SMARTY_DIR . 'Smarty.class.php');
 $smarty = new Smarty();
 
-echo "<p>Hello</p>";
+// set the templates dir
+$smarty->setTemplateDir(SMARTY_DIR . 'templates/');
+// display it
+$smarty->display('index.tpl');
+
+?>
+
