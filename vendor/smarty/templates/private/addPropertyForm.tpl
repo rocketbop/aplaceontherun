@@ -21,11 +21,11 @@
         <div class="form-group">
           <label for="county_name">County</label>
           <select name="county_name"class="form-control">
-            <option>1</option>
-            <option>2</option>
-            <option>3</option>
-            <option>4</option>
-            <option>5</option>
+            <option>Cork</option>
+            <option>Galway</option>
+            <option>Mayo</option>
+            <option>Donegal</option>
+            <option>Kerry</option>
           </select>
         </div>
         
@@ -38,11 +38,11 @@
         <div class="form-group">
           <label for="house_type">House Type</label>
           <select name="house_type" class="form-control">
-            <option>1</option>
-            <option>2</option>
-            <option>3</option>
-            <option>4</option>
-            <option>5</option>
+            <option>Detached House</option>
+            <option>Semi Detached House</option>
+            <option>Terraced House</option>
+            <option>Bungalow</option>
+            <option>Duplex Apartment</option>
           </select>
         </div>
         <div class="form-group">

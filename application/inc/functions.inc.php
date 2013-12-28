@@ -40,12 +40,10 @@ function getTable() {
 	}
 }
 
-
 function validateSubmissionTried() {
 
 	// $tried is hidden input, value only created after user tries to submit.
 	@$tried = ($_POST['tried'] == 'yes');
-
 	$submissionTried = (!empty($tried));
 
 	return $submissionTried;
@@ -61,4 +59,36 @@ function validatePost() {
 	return $validated;
 }
 
+function saveProperty() {
+
+	$addressLine1 = $_POST['address_line_1'];
+	$addressLine2 = isset($_POST['address_line_2']) ? $_POST['address_line_2'] : ""; 
+	$town = $_POST['town'];
+	$county_name = $_POST['county_name'];
+
+	//temporaily use dummy info for county_id
+	$county_id = 3;
+	//$house_type = $_POST['house_type_name'];
+
+	saveAddress($addressLine1, $addressLine2, $town, $county_id);
+
+}
+
+function saveAddress($addressLine1, $addressLine2, $town, $county_id) {
+
+	try {
+		$conn = new PDO('mysql:host=localhost;dbname=' . DB_DATABASE, DB_USER, DB_PASSWORD);
+		$conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+		$stmt = $conn->prepare('INSERT INTO address (`address_line_1`, `address_line_2`, `town`, `county_id`)
+			VALUES (:addressLine1, :addressLine2, :town, :county_id);');
+		$stmt->bindParam(':addressLine1', $addressLine1, PDO::PARAM_STR);
+		$stmt->bindParam(':addressLine2', $addressLine2, PDO::PARAM_STR);
+		$stmt->bindParam(':town', $town, PDO::PARAM_STR);
+		$stmt->bindParam(':county_id', $county_id, PDO::PARAM_INT);		
+	    $success = $stmt->execute();
+	}
+	catch(PDOException $e) {
+	    echo 'ERROR: ' . $e->getMessage();
+	}
+}
 ?>

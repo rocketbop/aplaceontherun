@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.16, created on 2013-12-28 19:41:17
+<?php /* Smarty version Smarty-3.1.16, created on 2013-12-28 22:14:41
          compiled from "vendor/smarty/templates/private/addPropertyForm.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:95028860752bf069cbf3784-15490988%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '0e93f93c3f4d819fdb3dd1c43c7830c1f682780a' => 
     array (
       0 => 'vendor/smarty/templates/private/addPropertyForm.tpl',
-      1 => 1388255928,
+      1 => 1388265168,
       2 => 'file',
     ),
   ),
@@ -42,11 +42,11 @@ $_valid = $_smarty_tpl->decodeProperties(array (
         <div class="form-group">
           <label for="county_name">County</label>
           <select name="county_name"class="form-control">
-            <option>1</option>
-            <option>2</option>
-            <option>3</option>
-            <option>4</option>
-            <option>5</option>
+            <option>Cork</option>
+            <option>Galway</option>
+            <option>Mayo</option>
+            <option>Donegal</option>
+            <option>Kerry</option>
           </select>
         </div>
         
@@ -59,11 +59,11 @@ $_valid = $_smarty_tpl->decodeProperties(array (
         <div class="form-group">
           <label for="house_type">House Type</label>
           <select name="house_type" class="form-control">
-            <option>1</option>
-            <option>2</option>
-            <option>3</option>
-            <option>4</option>
-            <option>5</option>
+            <option>Detached House</option>
+            <option>Semi Detached House</option>
+            <option>Terraced House</option>
+            <option>Bungalow</option>
+            <option>Duplex Apartment</option>
           </select>
         </div>
         <div class="form-group">
