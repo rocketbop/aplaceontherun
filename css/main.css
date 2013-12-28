@@ -11,13 +11,17 @@
 .property-table {
 	margin-top: 5em;
 	padding: 1em;
-	border-spacing: 20px
+	border-spacing: 20px;
+	background-color: white;
+
 }
 
 .property-table table {
 	
 	border-spacing: 0; 
-    border-collapse: collapse; 
+    border-collapse: collapse;
+
+
 }
 
 .property-table th,
@@ -30,7 +34,9 @@ body {
 	background-color: silver;
 }
 
-
+.add-property-form {
+	margin-top: 5em;
+}
 
 
 

@@ -1,6 +1,6 @@
 <div class="container">
 	<div class="row">
-		<div class="col-md-12 property-table table table-bordered table-condensed table-striped">
+		<div class="col-md-12 property-table table table-bordered table-striped">
 			<table>
 				<thead>
 					<tr>
@@ -11,6 +11,8 @@
 						<td>House Type</td>
 						<td>Price</td>
 					</tr>
+				</thead>
+				<tbody>
 					{foreach $properties as $property}
 						<tr>
 							<td>{$property.property_id}</td>
@@ -21,8 +23,7 @@
 							<td>{$property.monetary_value}</td>
 						</tr>
 					{/foreach}
-				
-				</thead>
+				</tbody>
 			</table>
 		</div>	
 	</div> <!-- Close row -->

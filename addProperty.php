@@ -27,7 +27,15 @@ $smarty = new Smarty();
 // set the templates dir
 $smarty->setTemplateDir(SMARTY_DIR . 'templates/private/');
 
+
+var_dump($_POST);
+if (!empty($_POST['address_line_1'])) {
+	echo "That's not empty. They're shit in there.";
+}
+else {
 // display it
+	echo "What.";
 $smarty->display('addProperty.tpl');
+}
 
 ?>

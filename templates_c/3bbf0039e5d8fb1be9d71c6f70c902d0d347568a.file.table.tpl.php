@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.16, created on 2013-12-28 17:41:50
+<?php /* Smarty version Smarty-3.1.16, created on 2013-12-28 18:35:45
          compiled from "vendor/smarty/templates/private/table.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:117665295952bec28419aae4-20017142%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '3bbf0039e5d8fb1be9d71c6f70c902d0d347568a' => 
     array (
       0 => 'vendor/smarty/templates/private/table.tpl',
-      1 => 1388248897,
+      1 => 1388252144,
       2 => 'file',
     ),
   ),
@@ -26,7 +26,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 ),false); /*/%%SmartyHeaderCode%%*/?>
 <?php if ($_valid && !is_callable('content_52bec28419d438_79683180')) {function content_52bec28419d438_79683180($_smarty_tpl) {?><div class="container">
 	<div class="row">
-		<div class="col-md-12 property-table table table-bordered table-condensed table-striped">
+		<div class="col-md-12 property-table table table-bordered table-striped">
 			<table>
 				<thead>
 					<tr>
@@ -37,6 +37,8 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 						<td>House Type</td>
 						<td>Price</td>
 					</tr>
+				</thead>
+				<tbody>
 					<?php  $_smarty_tpl->tpl_vars['property'] = new Smarty_Variable; $_smarty_tpl->tpl_vars['property']->_loop = false;
  $_from = $_smarty_tpl->tpl_vars['properties']->value; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array');}
 foreach ($_from as $_smarty_tpl->tpl_vars['property']->key => $_smarty_tpl->tpl_vars['property']->value) {
@@ -56,8 +58,7 @@ $_smarty_tpl->tpl_vars['property']->_loop = true;
 </td>
 						</tr>
 					<?php } ?>
-				
-				</thead>
+				</tbody>
 			</table>
 		</div>	
 	</div> <!-- Close row -->

@@ -5,7 +5,7 @@
 {include file='navigation.tpl'}
 
 {* The nav bar *}
-{include file='table.tpl'}
+{include file='addPropertyForm.tpl'}
 
 {* The footer *}
 {include file='footer.tpl'}
