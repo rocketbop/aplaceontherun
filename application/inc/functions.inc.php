@@ -53,42 +53,74 @@ function validateSubmissionTried() {
 function validatePost() {
 	@$addressLine1 = $_POST['address_line_1'];
 	@$town = $_POST['town'];
+	@$monetaryValue = $_POST['monetary_value'];
 
 	$validated = (!empty($addressLine1) && !empty($town));
 
 	return $validated;
 }
 
-function saveProperty() {
+function savePropertyDetails() {
 
+	// Variables
 	$addressLine1 = $_POST['address_line_1'];
 	$addressLine2 = isset($_POST['address_line_2']) ? $_POST['address_line_2'] : ""; 
 	$town = $_POST['town'];
 	$county_name = $_POST['county_name'];
+	$monetaryValue = $_POST['monetary_value'];
 
 	//temporaily use dummy info for county_id
-	$county_id = 3;
+	$countyId = 3;
 	//$house_type = $_POST['house_type_name'];
+	$houseTypeId = 4;
+	$propertyIsSold = true;
+	$imageName = "ourHouse.jpg";
 
-	saveAddress($addressLine1, $addressLine2, $town, $county_id);
-
+	// Post all needed data to the address table and get the address_id back as need to post that to property table
+	$insertedAddressId = saveAddress($addressLine1, $addressLine2, $town, $countyId);
+	// Post data to the property table
+	saveProperty($insertedAddressId, $houseTypeId, $monetaryValue, $propertyIsSold, $imageName);
+	header("Location: view.php");
 }
 
-function saveAddress($addressLine1, $addressLine2, $town, $county_id) {
+function saveAddress($addressLine1, $addressLine2, $town, $countyId) {
 
 	try {
 		$conn = new PDO('mysql:host=localhost;dbname=' . DB_DATABASE, DB_USER, DB_PASSWORD);
 		$conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 		$stmt = $conn->prepare('INSERT INTO address (`address_line_1`, `address_line_2`, `town`, `county_id`)
-			VALUES (:addressLine1, :addressLine2, :town, :county_id);');
+			VALUES (:addressLine1, :addressLine2, :town, :countyId);');
 		$stmt->bindParam(':addressLine1', $addressLine1, PDO::PARAM_STR);
 		$stmt->bindParam(':addressLine2', $addressLine2, PDO::PARAM_STR);
 		$stmt->bindParam(':town', $town, PDO::PARAM_STR);
-		$stmt->bindParam(':county_id', $county_id, PDO::PARAM_INT);		
-	    $success = $stmt->execute();
+		$stmt->bindParam(':countyId', $countyId, PDO::PARAM_INT);
+		$stmt->execute();
+		return $conn->lastInsertId('address_id');	
 	}
 	catch(PDOException $e) {
 	    echo 'ERROR: ' . $e->getMessage();
 	}
 }
+
+function saveProperty($addressId, $houseTypeId, $monetaryValue, $propertyIsSold, $imageName) {
+
+	try {
+		$conn = new PDO('mysql:host=localhost;dbname=' . DB_DATABASE, DB_USER, DB_PASSWORD);
+		$conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+		$stmt = $conn->prepare('INSERT INTO property (`address_id`, `house_type_id`, `monetary_value`, `property_is_sold`, `image_name`)
+			VALUES (:addressId, :houseTypeId, :monetaryValue, :propertyIsSold, :imageName);');
+		$stmt->bindParam(':addressId', $addressId, PDO::PARAM_INT);
+		$stmt->bindParam(':houseTypeId', $houseTypeId, PDO::PARAM_INT);
+		$stmt->bindParam(':monetaryValue', $monetaryValue, PDO::PARAM_INT);
+		$stmt->bindParam(':propertyIsSold', $propertyIsSold, PDO::PARAM_INT);
+		$stmt->bindParam(':imageName', $imageName, PDO::PARAM_INT);
+		$stmt->execute();	
+	}
+	catch(PDOException $e) {
+	    echo 'ERROR: ' . $e->getMessage();
+	}
+
+}
+
+
 ?>

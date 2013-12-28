@@ -30,7 +30,7 @@ $smarty->setTemplateDir(SMARTY_DIR . 'templates/private/');
 if (validateSubmissionTried()) {
 	
 	if (validatePost()) {
-		saveProperty();
+		savePropertyDetails();
 	}
 	else {
 		echo "You have to enter all the fields.";

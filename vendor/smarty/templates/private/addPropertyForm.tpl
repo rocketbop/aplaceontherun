@@ -45,6 +45,12 @@
             <option>Duplex Apartment</option>
           </select>
         </div>
+
+        <div class="form-group">
+          <label for="monetary_value">Price</label>
+          <input type="text" class="form-control" name="monetary_value" id="monetary_value" placeholder="Price">
+        </div>
+
         <div class="form-group">
         <input type="hidden" name="tried" value="yes">
         <input name="form-submit" type="submit" class="btn btn-default">Submit</input>

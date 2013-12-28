@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.16, created on 2013-12-28 22:14:41
+<?php /* Smarty version Smarty-3.1.16, created on 2013-12-28 23:48:00
          compiled from "vendor/smarty/templates/private/addPropertyForm.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:95028860752bf069cbf3784-15490988%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '0e93f93c3f4d819fdb3dd1c43c7830c1f682780a' => 
     array (
       0 => 'vendor/smarty/templates/private/addPropertyForm.tpl',
-      1 => 1388265168,
+      1 => 1388270879,
       2 => 'file',
     ),
   ),
@@ -66,6 +66,12 @@ $_valid = $_smarty_tpl->decodeProperties(array (
             <option>Duplex Apartment</option>
           </select>
         </div>
+
+        <div class="form-group">
+          <label for="monetary_value">Price</label>
+          <input type="text" class="form-control" name="monetary_value" id="monetary_value" placeholder="Price">
+        </div>
+
         <div class="form-group">
         <input type="hidden" name="tried" value="yes">
         <input name="form-submit" type="submit" class="btn btn-default">Submit</input>
