@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.16, created on 2013-12-28 18:57:38
+<?php /* Smarty version Smarty-3.1.16, created on 2013-12-28 19:41:17
          compiled from "vendor/smarty/templates/private/addPropertyForm.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:95028860752bf069cbf3784-15490988%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '0e93f93c3f4d819fdb3dd1c43c7830c1f682780a' => 
     array (
       0 => 'vendor/smarty/templates/private/addPropertyForm.tpl',
-      1 => 1388253450,
+      1 => 1388255928,
       2 => 'file',
     ),
   ),
@@ -32,6 +32,11 @@ $_valid = $_smarty_tpl->decodeProperties(array (
         <div class="form-group">
           <label for="address_line_2">Property Address line 2</label>
           <input type="text" class="form-control" name="address_line_2" id="address_line_2" placeholder="Address Line 2">
+        </div>
+
+        <div class="form-group">
+          <label for="town">Town</label>
+          <input type="text" class="form-control" name="town" id="town" placeholder="Town">
         </div>
 
         <div class="form-group">
@@ -62,6 +67,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
           </select>
         </div>
         <div class="form-group">
+        <input type="hidden" name="tried" value="yes">
         <input name="form-submit" type="submit" class="btn btn-default">Submit</input>
         </div>
       </form>

@@ -27,14 +27,20 @@ $smarty = new Smarty();
 // set the templates dir
 $smarty->setTemplateDir(SMARTY_DIR . 'templates/private/');
 
+if (validateSubmissionTried()) {
+	
+	if (validatePost()) {
+		echo "OK.";
+	}
+	else {
+		echo "You have to enter all the fields.";
+	}
 
-var_dump($_POST);
-if (!empty($_POST['address_line_1'])) {
-	echo "That's not empty. They're shit in there.";
 }
+
 else {
 // display it
-	echo "What.";
+	echo "You haven't tried to post.";
 $smarty->display('addProperty.tpl');
 }
 

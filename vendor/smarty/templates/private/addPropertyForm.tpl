@@ -14,6 +14,11 @@
         </div>
 
         <div class="form-group">
+          <label for="town">Town</label>
+          <input type="text" class="form-control" name="town" id="town" placeholder="Town">
+        </div>
+
+        <div class="form-group">
           <label for="county_name">County</label>
           <select name="county_name"class="form-control">
             <option>1</option>
@@ -41,6 +46,7 @@
           </select>
         </div>
         <div class="form-group">
+        <input type="hidden" name="tried" value="yes">
         <input name="form-submit" type="submit" class="btn btn-default">Submit</input>
         </div>
       </form>

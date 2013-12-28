@@ -40,4 +40,25 @@ function getTable() {
 	}
 }
 
+
+function validateSubmissionTried() {
+
+	// $tried is hidden input, value only created after user tries to submit.
+	@$tried = ($_POST['tried'] == 'yes');
+
+	$submissionTried = (!empty($tried));
+
+	return $submissionTried;
+}
+
+// Supress errors as function returns false if any index not found anyway
+function validatePost() {
+	@$addressLine1 = $_POST['address_line_1'];
+	@$town = $_POST['town'];
+
+	$validated = (!empty($addressLine1) && !empty($town));
+
+	return $validated;
+}
+
 ?>
