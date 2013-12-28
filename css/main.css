@@ -8,9 +8,27 @@
 
 
 
+.property-table {
+	margin-top: 5em;
+	padding: 1em;
+	border-spacing: 20px
+}
+
+.property-table table {
+	
+	border-spacing: 0; 
+    border-collapse: collapse; 
+}
+
+.property-table th,
+.property-table td, {
+	padding: 0;
+}
 
 
-
+body {
+	background-color: silver;
+}
 
 
 

@@ -7,7 +7,7 @@ require_once(SMARTY_DIR . 'Smarty.class.php');
 $smarty = new Smarty();
 
 // set the templates dir
-$smarty->setTemplateDir(SMARTY_DIR . 'templates/');
+$smarty->setTemplateDir(SMARTY_DIR . 'templates/public/');
 // display it
 $smarty->display('index.tpl');
 

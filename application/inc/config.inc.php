@@ -17,5 +17,5 @@ define("DB_DATABASE","placeontherun");
 define("VERSION_NUMBER","1.0");
 define("COMPANY_NAME","Digital Hub");
 define("APPLICATION_NAME","WebElevate Confectionary Products");
-define("DOCUMENT_ROOT", "../application/");
+//define("DOCUMENT_ROOT", "../application/");
 
