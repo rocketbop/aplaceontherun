@@ -68,18 +68,17 @@ function savePropertyDetails() {
 	$town = $_POST['town'];
 	$county_name = $_POST['county_name'];
 	$monetaryValue = $_POST['monetary_value'];
-
+	$propertyImageName = basename( $_FILES['property_image']['name']);
 	//temporaily use dummy info for county_id
 	$countyId = 3;
 	//$house_type = $_POST['house_type_name'];
 	$houseTypeId = 4;
 	$propertyIsSold = true;
-	$imageName = "ourHouse.jpg";
-
+	
 	// Post all needed data to the address table and get the address_id back as need to post that to property table
 	$insertedAddressId = saveAddress($addressLine1, $addressLine2, $town, $countyId);
 	// Post data to the property table
-	saveProperty($insertedAddressId, $houseTypeId, $monetaryValue, $propertyIsSold, $imageName);
+	saveProperty($insertedAddressId, $houseTypeId, $monetaryValue, $propertyIsSold, $propertyImageName);
 	header("Location: view.php");
 }
 
@@ -102,7 +101,7 @@ function saveAddress($addressLine1, $addressLine2, $town, $countyId) {
 	}
 }
 
-function saveProperty($addressId, $houseTypeId, $monetaryValue, $propertyIsSold, $imageName) {
+function saveProperty($addressId, $houseTypeId, $monetaryValue, $propertyIsSold, $propertyImageName) {
 
 	try {
 		$conn = new PDO('mysql:host=localhost;dbname=' . DB_DATABASE, DB_USER, DB_PASSWORD);
@@ -113,7 +112,7 @@ function saveProperty($addressId, $houseTypeId, $monetaryValue, $propertyIsSold,
 		$stmt->bindParam(':houseTypeId', $houseTypeId, PDO::PARAM_INT);
 		$stmt->bindParam(':monetaryValue', $monetaryValue, PDO::PARAM_INT);
 		$stmt->bindParam(':propertyIsSold', $propertyIsSold, PDO::PARAM_INT);
-		$stmt->bindParam(':imageName', $imageName, PDO::PARAM_INT);
+		$stmt->bindParam(':imageName', $propertyImageName, PDO::PARAM_INT);
 		$stmt->execute();	
 	}
 	catch(PDOException $e) {
