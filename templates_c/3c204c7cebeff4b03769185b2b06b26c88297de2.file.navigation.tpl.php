@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.16, created on 2013-12-28 18:00:43
+<?php /* Smarty version Smarty-3.1.16, created on 2013-12-29 14:35:21
          compiled from "vendor/smarty/templates/private/navigation.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:190875320852beb6e0b8b2f0-61248774%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '3c204c7cebeff4b03769185b2b06b26c88297de2' => 
     array (
       0 => 'vendor/smarty/templates/private/navigation.tpl',
-      1 => 1388249204,
+      1 => 1388324117,
       2 => 'file',
     ),
   ),
@@ -17,6 +17,12 @@ $_valid = $_smarty_tpl->decodeProperties(array (
   ),
   'version' => 'Smarty-3.1.16',
   'unifunc' => 'content_52beb6e0b8e1d0_59252321',
+  'variables' => 
+  array (
+    'activeHome' => 0,
+    'activeView' => 0,
+    'activeAddProperty' => 0,
+  ),
   'has_nocache_code' => false,
 ),false); /*/%%SmartyHeaderCode%%*/?>
 <?php if ($_valid && !is_callable('content_52beb6e0b8e1d0_59252321')) {function content_52beb6e0b8e1d0_59252321($_smarty_tpl) {?>       <!--[if lt IE 7]>
@@ -30,13 +36,16 @@ $_valid = $_smarty_tpl->decodeProperties(array (
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="#">A Place on the Run</a>
+          <a class="navbar-brand" href="admin.php">A Place on the Run</a>
         </div>
         <div class="navbar-collapse collapse">
           <ul class="nav navbar-nav">
-            <li class="active"><a href="#">Home</a></li>
-            <li><a href="view.php">View</a></li>
-            <li><a href="addProperty.php">Add Property</a></li>
+            <li class="<?php echo $_smarty_tpl->tpl_vars['activeHome']->value;?>
+"><a href="admin.php">Home</a></li>
+            <li class="<?php echo $_smarty_tpl->tpl_vars['activeView']->value;?>
+"><a href="view.php">View</a></li>
+            <li class="<?php echo $_smarty_tpl->tpl_vars['activeAddProperty']->value;?>
+"><a href="addProperty.php">Add Property</a></li>
             <li class="dropdown">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown <b class="caret"></b></a>
               <ul class="dropdown-menu">

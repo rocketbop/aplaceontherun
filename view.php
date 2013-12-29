@@ -31,7 +31,7 @@ $smarty = new Smarty();
 // set the templates dir
 $smarty->setTemplateDir(SMARTY_DIR . 'templates/private/');
 
-
+$smarty->assign('activeView', 'active'); //For active nav bar
 $smarty->assign('properties', $results);
 // display it
 $smarty->display('view.tpl');

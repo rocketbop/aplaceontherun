@@ -131,5 +131,22 @@ function uploadFiles() {
 	return $fileUploadedSuccessfully;
 }
 
+function deleteProperty($propertyId, $addressId) {
+	try {
+		$conn = new PDO('mysql:host=localhost;dbname=' . DB_DATABASE, DB_USER, DB_PASSWORD);
+		$conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+		$stmt = $conn->prepare('DELETE FROM `property` WHERE `property_id` = :propertyId');
+		$stmt->bindParam(':propertyId', $propertyId, PDO::PARAM_INT);
+	  $stmt->execute();
+	  $stmt = $conn->prepare('DELETE FROM `address` WHERE `address_id` = :addressId');
+		$stmt->bindParam(':addressId', $addressId, PDO::PARAM_INT);
+	  $stmt->execute();  
+	    }
+	catch(PDOException $e) {
+	    echo 'ERROR: ' . $e->getMessage();
+	}
+
+
+}
 
 ?>

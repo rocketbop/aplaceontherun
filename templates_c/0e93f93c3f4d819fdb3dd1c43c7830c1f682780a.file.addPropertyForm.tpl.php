@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.16, created on 2013-12-28 23:48:00
+<?php /* Smarty version Smarty-3.1.16, created on 2013-12-29 15:17:24
          compiled from "vendor/smarty/templates/private/addPropertyForm.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:95028860752bf069cbf3784-15490988%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '0e93f93c3f4d819fdb3dd1c43c7830c1f682780a' => 
     array (
       0 => 'vendor/smarty/templates/private/addPropertyForm.tpl',
-      1 => 1388270879,
+      1 => 1388326534,
       2 => 'file',
     ),
   ),
@@ -20,12 +20,23 @@ $_valid = $_smarty_tpl->decodeProperties(array (
   'has_nocache_code' => false,
 ),false); /*/%%SmartyHeaderCode%%*/?>
 <?php if ($_valid && !is_callable('content_52bf069cbf61f0_29000111')) {function content_52bf069cbf61f0_29000111($_smarty_tpl) {?><div class="container">
+
+    <div class="row">
+    <div class="col-md-12">
+      <h1>Add New Property</h1>
+      <p>Enter the details for the property to be added. An image is recommended but not required.</p>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-12 add-property-form-background">
+
   <div class="row"> 
      <div class="add-property-form col-md-offset-2 col-md-8">
       <form role="form" method="post" action="addProperty.php" enctype="multipart/form-data">
 
         <div class="form-group">
-          <label for="address_line_1">Property Address line 1</label>
+          <label for="address_line_1">Property Address line 1*</label>
+          <h6>* Required</h6>
           <input type="text" class="form-control" name="address_line_1" id="address_line_1" placeholder="Address Line 1">
         </div>
 
@@ -35,7 +46,8 @@ $_valid = $_smarty_tpl->decodeProperties(array (
         </div>
 
         <div class="form-group">
-          <label for="town">Town</label>
+          <label for="town">Town*</label>
+          <h6>* Required</h6>
           <input type="text" class="form-control" name="town" id="town" placeholder="Town">
         </div>
 
@@ -68,15 +80,18 @@ $_valid = $_smarty_tpl->decodeProperties(array (
         </div>
 
         <div class="form-group">
-          <label for="monetary_value">Price</label>
+          <label for="monetary_value">Price*</label>
+          <h6>* Required</h6>
           <input type="text" class="form-control" name="monetary_value" id="monetary_value" placeholder="Price">
         </div>
 
         <div class="form-group">
         <input type="hidden" name="tried" value="yes">
-        <input name="form-submit" type="submit" class="btn btn-default">Submit</input>
+        <input name="form-submit" type="submit" class="btn btn-success"></input>
         </div>
       </form>
     </div>
+  </div>
+      </div>
   </div>
 </div> <!-- Close container -->    <?php }} ?>

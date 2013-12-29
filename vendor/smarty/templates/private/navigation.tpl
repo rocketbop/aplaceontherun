@@ -9,13 +9,13 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="#">A Place on the Run</a>
+          <a class="navbar-brand" href="admin.php">A Place on the Run</a>
         </div>
         <div class="navbar-collapse collapse">
           <ul class="nav navbar-nav">
-            <li class="active"><a href="#">Home</a></li>
-            <li><a href="view.php">View</a></li>
-            <li><a href="addProperty.php">Add Property</a></li>
+            <li class="{$activeHome}"><a href="admin.php">Home</a></li>
+            <li class="{$activeView}"><a href="view.php">View</a></li>
+            <li class="{$activeAddProperty}"><a href="addProperty.php">Add Property</a></li>
             <li class="dropdown">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown <b class="caret"></b></a>
               <ul class="dropdown-menu">

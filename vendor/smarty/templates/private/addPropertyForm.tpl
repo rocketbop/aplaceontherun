@@ -1,10 +1,21 @@
 <div class="container">
+
+    <div class="row">
+    <div class="col-md-12">
+      <h1>Add New Property</h1>
+      <p>Enter the details for the property to be added. An image is recommended but not required.</p>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-12 add-property-form-background">
+
   <div class="row"> 
      <div class="add-property-form col-md-offset-2 col-md-8">
       <form role="form" method="post" action="addProperty.php" enctype="multipart/form-data">
 
         <div class="form-group">
-          <label for="address_line_1">Property Address line 1</label>
+          <label for="address_line_1">Property Address line 1*</label>
+          <h6>* Required</h6>
           <input type="text" class="form-control" name="address_line_1" id="address_line_1" placeholder="Address Line 1">
         </div>
 
@@ -14,7 +25,8 @@
         </div>
 
         <div class="form-group">
-          <label for="town">Town</label>
+          <label for="town">Town*</label>
+          <h6>* Required</h6>
           <input type="text" class="form-control" name="town" id="town" placeholder="Town">
         </div>
 
@@ -47,15 +59,18 @@
         </div>
 
         <div class="form-group">
-          <label for="monetary_value">Price</label>
+          <label for="monetary_value">Price*</label>
+          <h6>* Required</h6>
           <input type="text" class="form-control" name="monetary_value" id="monetary_value" placeholder="Price">
         </div>
 
         <div class="form-group">
         <input type="hidden" name="tried" value="yes">
-        <input name="form-submit" type="submit" class="btn btn-default">Submit</input>
+        <input name="form-submit" type="submit" class="btn btn-success"></input>
         </div>
       </form>
     </div>
+  </div>
+      </div>
   </div>
 </div> <!-- Close container -->    

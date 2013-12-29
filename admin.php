@@ -14,6 +14,7 @@ $smarty = new Smarty();
 
 // set the templates dir
 $smarty->setTemplateDir(SMARTY_DIR . 'templates/private/');
+$smarty->assign('activeHome', 'active'); //For active nav bar
 // display it
 $smarty->display('admin.tpl');
 

@@ -28,6 +28,8 @@ $smarty = new Smarty();
 // set the templates dir
 $smarty->setTemplateDir(SMARTY_DIR . 'templates/private/');
 
+$smarty->assign('activeAddProperty', 'active');
+
 if (validateSubmissionTried()) {
 	
 	if (validatePost()) {

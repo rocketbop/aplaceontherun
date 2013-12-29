@@ -9,10 +9,13 @@
 
 
 .property-table {
-	margin-top: 5em;
+	margin-top: 1em;
 	padding: 1em;
 	border-spacing: 20px;
 	background-color: white;
+	-moz-border-radius:10px;  /* for Firefox */
+	-webkit-border-radius:10px; /* for Webkit-Browsers */
+	border-radius:10px; /* regular */
 
 }
 
@@ -35,9 +38,16 @@ body {
 }
 
 .add-property-form {
-	margin-top: 5em;
+	margin-top: 1em;
 }
 
+.add-property-form-background {
+	background-color: rgba(255, 255, 255, 0.5);
+	-moz-border-radius:10px;  /* for Firefox */
+	-webkit-border-radius:10px; /* for Webkit-Browsers */
+	border-radius:10px; /* regular */
+      
+}
 
 
 
