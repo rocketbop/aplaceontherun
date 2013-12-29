@@ -18,36 +18,53 @@ include (APPLICATION_PATH . "/inc/config.inc.php");
 include (APPLICATION_PATH . "/inc/db.inc.php");
 include (APPLICATION_PATH . "/inc/functions.inc.php");
 
+
+
 $propertyId = (int)($_POST['property_id']);
 $addressId = (int)($_POST['address_id']);
 
-$result = getPropertyToUpdate($propertyId, $addressId);
+if (!$_POST['newDataForUpdating'] == 'yes') {
 
-// define paths
-define('SMARTY_DIR', 'vendor/smarty/');
+	$properties = getPropertyToBeUpdated($propertyId, $addressId);
+	$counties = getCounties();
+	$houseTypes = getHouseTypes();
 
-//smarty templating
-require_once(SMARTY_DIR . 'Smarty.class.php');
-$smarty = new Smarty();
 
-// set the templates dir
-$smarty->setTemplateDir(SMARTY_DIR . 'templates/private/');
+	// define paths
+	define('SMARTY_DIR', 'vendor/smarty/');
 
-$smarty->assign('activeAddProperty', 'active'); //For active nav bar
-$smarty->display('updateProperty.tpl');
-/*if (validateSubmissionTried()) {
-	
-	if (validatePost()) {
-		savePropertyDetails();
-	}
-	else {
-		echo "You have to enter all the fields.";
-	}
+	//smarty templating
+	require_once(SMARTY_DIR . 'Smarty.class.php');
+	$smarty = new Smarty();
+
+	// set the templates dir
+	$smarty->setTemplateDir(SMARTY_DIR . 'templates/private/');
+
+
+	$smarty->assign('properties', $properties);
+	$smarty->assign('counties', $counties);
+	$smarty->assign('houseTypes', $houseTypes);
+	$smarty->assign('uploadPath', UPLOAD_PATH);
+
+	$smarty->display('updateProperty.tpl');
+
 }
 else {
 
-	// display it
-	$smarty->display('addProperty.tpl');
-}*/
+	updateProperty($propertyId, $addressId);
+	header("Location: view.php");
+
+		// define paths
+	define('SMARTY_DIR', 'vendor/smarty/');
+
+	//smarty templating
+	require_once(SMARTY_DIR . 'Smarty.class.php');
+	$smarty = new Smarty();
+
+	// set the templates dir
+	$smarty->setTemplateDir(SMARTY_DIR . 'templates/private/');
+
+	$smarty->display('propertyUpdated.tpl');
+}
 
 ?>

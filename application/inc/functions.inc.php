@@ -40,6 +40,28 @@ function getTable() {
 	}
 }
 
+function getPropertyToBeUpdated($propertyId, $addressId) {
+	try {
+		$conn = new PDO('mysql:host=localhost;dbname=' . DB_DATABASE, DB_USER, DB_PASSWORD);
+		$conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+		$stmt = $conn->prepare('SELECT * FROM property
+			LEFT JOIN house_type ON house_type.house_type_id = property.house_type_id
+			LEFT JOIN address ON address.address_id = property.address_id
+			LEFT JOIN county ON county.county_id = address.county_id WHERE `property_id` = :propertyId');
+		$stmt->bindParam(':propertyId', $propertyId, PDO::PARAM_INT);
+	  //$stmt->bindParam(':addressId', $addressId, PDO::PARAM_INT);
+	  $stmt->execute();
+
+	  
+	  $results = $stmt->fetchAll(PDO::FETCH_ASSOC);
+	  return $results;
+	    }
+	catch(PDOException $e) {
+	    echo 'ERROR: ' . $e->getMessage();
+	}
+
+}
+
 function getCounties() {
 	try {
 		$conn = new PDO('mysql:host=localhost;dbname=' . DB_DATABASE, DB_USER, DB_PASSWORD);
@@ -217,8 +239,63 @@ function deleteProperty($propertyId, $addressId) {
 	catch(PDOException $e) {
 	    echo 'ERROR: ' . $e->getMessage();
 	}
+}
 
+function updateProperty($propertyId, $addressId) {
+
+	$addressLine1 = $_POST['address_line_1'];
+	$addressLine2 = $_POST['address_line_2'];
+	$town = (!empty($_POST['town'])) ? $_POST['town'] : "";
+	$monetaryValue = (!empty($_POST['monetary_value'])) ? $_POST['monetary_value'] : "";
+	$countyName = (!empty($_POST['county_name'])) ? $_POST['county_name'] : "";
+	$houseType = (!empty($_POST['house_type'])) ? $_POST['house_type'] : "";
+
+	$countyId = getCountyId($countyName);
+	$houseTypeId = getHouseTypeId($houseType);
+
+	updateAddressTable($addressLine1, $addressLine2, $town, $countyId, $addressId);
+	updatePropertyTable($monetaryValue, $houseType, $addressId, $propertyId);
 
 }
+
+function updateAddressTable($addressLine1, $addressLine2, $town, $countyId, $addressId) {
+		try {
+		$conn = new PDO('mysql:host=localhost;dbname=' . DB_DATABASE, DB_USER, DB_PASSWORD);
+		$conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+		$stmt = $conn->prepare('UPDATE address SET `address_line_1` = :addressLine1, `address_line_2` = :addressLine2,
+		`town` = :town, `county_id` = :countyId
+		WHERE `address_id` = :addressId;');
+		$stmt->bindParam(':addressLine1', $addressLine1, PDO::PARAM_STR);
+		$stmt->bindParam(':addressLine2', $addressLine2, PDO::PARAM_STR);
+		$stmt->bindParam(':town', $town, PDO::PARAM_STR);
+		$stmt->bindParam(':countyId', $countyId, PDO::PARAM_INT);
+		$stmt->bindParam(':addressId', $addressId, PDO::PARAM_INT);
+		$stmt->execute();
+	}
+	catch(PDOException $e) {
+	    echo 'ERROR: ' . $e->getMessage();
+	}
+}
+
+function updatePropertyTable($monetaryValue, $houseType, $addressId, $propertyId) {
+	try {
+		$conn = new PDO('mysql:host=localhost;dbname=' . DB_DATABASE, DB_USER, DB_PASSWORD);
+		$conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+		$stmt = $conn->prepare('UPDATE property SET `address_id` = :addressId, `house_type_id` = :houseTypeId,
+		`monetary_value` = :monetaryValue WHERE `property_id` = :propertyId;');
+		$stmt->bindParam(':addressId', $addressId, PDO::PARAM_INT);
+		$stmt->bindParam(':houseTypeId', $houseTypeId, PDO::PARAM_INT);
+		$stmt->bindParam(':monetaryValue', $monetaryValue, PDO::PARAM_INT);
+		$stmt->bindParam(':propertyId', $propertyId, PDO::PARAM_INT);
+
+		$stmt->execute();	
+	}
+	catch(PDOException $e) {
+	    echo 'ERROR: ' . $e->getMessage();
+	}
+}
+
+
+
 
 ?>

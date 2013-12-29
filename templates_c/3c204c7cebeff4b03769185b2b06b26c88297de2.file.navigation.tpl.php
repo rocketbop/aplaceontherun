@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.16, created on 2013-12-29 14:35:21
+<?php /* Smarty version Smarty-3.1.16, created on 2013-12-30 00:17:18
          compiled from "vendor/smarty/templates/private/navigation.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:190875320852beb6e0b8b2f0-61248774%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '3c204c7cebeff4b03769185b2b06b26c88297de2' => 
     array (
       0 => 'vendor/smarty/templates/private/navigation.tpl',
-      1 => 1388324117,
+      1 => 1388359037,
       2 => 'file',
     ),
   ),
@@ -46,7 +46,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 "><a href="view.php">View</a></li>
             <li class="<?php echo $_smarty_tpl->tpl_vars['activeAddProperty']->value;?>
 "><a href="addProperty.php">Add Property</a></li>
-            <li class="dropdown">
+ <!--            <li class="dropdown">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown <b class="caret"></b></a>
               <ul class="dropdown-menu">
                 <li><a href="#">Action</a></li>
@@ -57,7 +57,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
                 <li><a href="#">Separated link</a></li>
                 <li><a href="#">One more separated link</a></li>
               </ul>
-            </li>
+            </li> -->
           </ul>
 
           <form class="navbar-form navbar-right" action="logout.php" method="post">

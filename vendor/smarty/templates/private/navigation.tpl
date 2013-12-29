@@ -16,7 +16,7 @@
             <li class="{$activeHome}"><a href="admin.php">Home</a></li>
             <li class="{$activeView}"><a href="view.php">View</a></li>
             <li class="{$activeAddProperty}"><a href="addProperty.php">Add Property</a></li>
-            <li class="dropdown">
+ <!--            <li class="dropdown">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown <b class="caret"></b></a>
               <ul class="dropdown-menu">
                 <li><a href="#">Action</a></li>
@@ -27,7 +27,7 @@
                 <li><a href="#">Separated link</a></li>
                 <li><a href="#">One more separated link</a></li>
               </ul>
-            </li>
+            </li> -->
           </ul>
 
           <form class="navbar-form navbar-right" action="logout.php" method="post">
