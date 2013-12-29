@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.16, created on 2013-12-29 17:07:53
+<?php /* Smarty version Smarty-3.1.16, created on 2013-12-29 18:59:30
          compiled from "vendor/smarty/templates/private/table.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:117665295952bec28419aae4-20017142%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '3bbf0039e5d8fb1be9d71c6f70c902d0d347568a' => 
     array (
       0 => 'vendor/smarty/templates/private/table.tpl',
-      1 => 1388333269,
+      1 => 1388339969,
       2 => 'file',
     ),
   ),
@@ -74,7 +74,15 @@ $_smarty_tpl->tpl_vars['property']->_loop = true;
 </td>
 							<td>EUR <?php echo $_smarty_tpl->tpl_vars['property']->value['monetary_value'];?>
 </td>
-							<td><td><button type="button" class="btn btn-warning">Update</button></td></td>
+							<td>
+								<form role="form" method="post" action="updateProperty.php" enctype="multipart/form-data">
+									<input type="hidden" name="property_id" value="<?php echo $_smarty_tpl->tpl_vars['property']->value['property_id'];?>
+">
+									<input type="hidden" name="address_id" value="<?php echo $_smarty_tpl->tpl_vars['property']->value['address_id'];?>
+">
+									<input name="form-submit" type="submit" value="Update" class="btn btn-warning"></input>
+								</form>
+							</td>
 							<td>
 								<form role="form" method="post" action="deleteProperty.php" enctype="multipart/form-data">
 									<input type="hidden" name="property_id" value="<?php echo $_smarty_tpl->tpl_vars['property']->value['property_id'];?>
@@ -82,7 +90,7 @@ $_smarty_tpl->tpl_vars['property']->_loop = true;
 									<input type="hidden" name="address_id" value="<?php echo $_smarty_tpl->tpl_vars['property']->value['address_id'];?>
 ">
 									<input name="form-submit" type="submit" value="Delete" class="btn btn-danger"></input>
-							</form>
+								</form>
 							</td>
 						</tr>
 					<?php } ?>

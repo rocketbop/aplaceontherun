@@ -34,13 +34,19 @@
 							<td><img src="uploads/{$property.image_name}" alt="{$property.image_name}" width="150px"></td>
 							<td>{$property.house_type}</td>
 							<td>EUR {$property.monetary_value}</td>
-							<td><td><button type="button" class="btn btn-warning">Update</button></td></td>
+							<td>
+								<form role="form" method="post" action="updateProperty.php" enctype="multipart/form-data">
+									<input type="hidden" name="property_id" value="{$property.property_id}">
+									<input type="hidden" name="address_id" value="{$property.address_id}">
+									<input name="form-submit" type="submit" value="Update" class="btn btn-warning"></input>
+								</form>
+							</td>
 							<td>
 								<form role="form" method="post" action="deleteProperty.php" enctype="multipart/form-data">
 									<input type="hidden" name="property_id" value="{$property.property_id}">
 									<input type="hidden" name="address_id" value="{$property.address_id}">
 									<input name="form-submit" type="submit" value="Delete" class="btn btn-danger"></input>
-							</form>
+								</form>
 							</td>
 						</tr>
 					{/foreach}

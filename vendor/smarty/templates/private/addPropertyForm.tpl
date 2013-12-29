@@ -33,11 +33,9 @@
         <div class="form-group">
           <label for="county_name">County</label>
           <select name="county_name"class="form-control">
-            <option>Cork</option>
-            <option>Galway</option>
-            <option>Mayo</option>
-            <option>Donegal</option>
-            <option>Kerry</option>
+            {foreach $properties as $property}
+              <option>{$property.county_name}</option>
+            {/foreach}  
           </select>
         </div>
         
@@ -50,11 +48,9 @@
         <div class="form-group">
           <label for="house_type">House Type</label>
           <select name="house_type" class="form-control">
-            <option>Detached House</option>
-            <option>Semi Detached House</option>
-            <option>Terraced House</option>
-            <option>Bungalow</option>
-            <option>Duplex Apartment</option>
+            {foreach $houseTypes as $houseType}
+              <option>{$houseType.house_type}</option>
+            {/foreach}  
           </select>
         </div>
 

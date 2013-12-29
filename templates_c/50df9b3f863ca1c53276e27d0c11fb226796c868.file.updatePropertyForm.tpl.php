@@ -1,22 +1,22 @@
-<?php /* Smarty version Smarty-3.1.16, created on 2013-12-29 18:42:59
-         compiled from "vendor/smarty/templates/private/addPropertyForm.tpl" */ ?>
-<?php /*%%SmartyHeaderCode:95028860752bf069cbf3784-15490988%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /* Smarty version Smarty-3.1.16, created on 2013-12-29 19:04:23
+         compiled from "vendor/smarty/templates/private/updatePropertyForm.tpl" */ ?>
+<?php /*%%SmartyHeaderCode:133526861452c0640c0fde29-55678511%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
-    '0e93f93c3f4d819fdb3dd1c43c7830c1f682780a' => 
+    '50df9b3f863ca1c53276e27d0c11fb226796c868' => 
     array (
-      0 => 'vendor/smarty/templates/private/addPropertyForm.tpl',
-      1 => 1388338923,
+      0 => 'vendor/smarty/templates/private/updatePropertyForm.tpl',
+      1 => 1388340262,
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '95028860752bf069cbf3784-15490988',
+  'nocache_hash' => '133526861452c0640c0fde29-55678511',
   'function' => 
   array (
   ),
   'version' => 'Smarty-3.1.16',
-  'unifunc' => 'content_52bf069cbf61f0_29000111',
+  'unifunc' => 'content_52c0640c124602_06295164',
   'variables' => 
   array (
     'properties' => 0,
@@ -26,11 +26,12 @@ $_valid = $_smarty_tpl->decodeProperties(array (
   ),
   'has_nocache_code' => false,
 ),false); /*/%%SmartyHeaderCode%%*/?>
-<?php if ($_valid && !is_callable('content_52bf069cbf61f0_29000111')) {function content_52bf069cbf61f0_29000111($_smarty_tpl) {?><div class="container">
+<?php if ($_valid && !is_callable('content_52c0640c124602_06295164')) {function content_52c0640c124602_06295164($_smarty_tpl) {?><div class="container">
 
     <div class="row">
     <div class="col-md-12">
-      <h1>Add New Property</h1>
+      <h1>Update Property Details</h1>
+      <h2></h2>
       <p>Enter the details for the property to be added. An image is recommended but not required.</p>
     </div>
   </div>

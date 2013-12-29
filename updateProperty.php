@@ -18,9 +18,10 @@ include (APPLICATION_PATH . "/inc/config.inc.php");
 include (APPLICATION_PATH . "/inc/db.inc.php");
 include (APPLICATION_PATH . "/inc/functions.inc.php");
 
+$propertyId = (int)($_POST['property_id']);
+$addressId = (int)($_POST['address_id']);
 
-$results = getCounties();
-$houseTypes = getHouseTypes();
+$result = getPropertyToUpdate($propertyId, $addressId);
 
 // define paths
 define('SMARTY_DIR', 'vendor/smarty/');
@@ -33,11 +34,8 @@ $smarty = new Smarty();
 $smarty->setTemplateDir(SMARTY_DIR . 'templates/private/');
 
 $smarty->assign('activeAddProperty', 'active'); //For active nav bar
-$smarty->assign('properties', $results);
-$smarty->assign('houseTypes', $houseTypes);
-
-
-if (validateSubmissionTried()) {
+$smarty->display('updateProperty.tpl');
+/*if (validateSubmissionTried()) {
 	
 	if (validatePost()) {
 		savePropertyDetails();
@@ -50,6 +48,6 @@ else {
 
 	// display it
 	$smarty->display('addProperty.tpl');
-}
+}*/
 
 ?>

@@ -40,6 +40,77 @@ function getTable() {
 	}
 }
 
+function getCounties() {
+	try {
+		$conn = new PDO('mysql:host=localhost;dbname=' . DB_DATABASE, DB_USER, DB_PASSWORD);
+		$conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+		$stmt = $conn->prepare('SELECT * FROM `county`');
+	  $stmt->execute();
+
+	    //MySQL will only return a value if a match found.
+	    $results = $stmt->fetchAll(PDO::FETCH_ASSOC);
+	    return $results;
+	    }
+	catch(PDOException $e) {
+	    echo 'ERROR: ' . $e->getMessage();
+	}
+}
+
+function getHouseTypes() {
+	try {
+		$conn = new PDO('mysql:host=localhost;dbname=' . DB_DATABASE, DB_USER, DB_PASSWORD);
+		$conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+		$stmt = $conn->prepare('SELECT * FROM `house_type`');
+	  $stmt->execute();
+
+	    //MySQL will only return a value if a match found.
+	    $results = $stmt->fetchAll(PDO::FETCH_ASSOC);
+	    return $results;
+	    }
+	catch(PDOException $e) {
+	    echo 'ERROR: ' . $e->getMessage();
+	}
+}
+
+
+
+
+function getCountyId($countyName) {
+	try {
+		$conn = new PDO('mysql:host=localhost;dbname=' . DB_DATABASE, DB_USER, DB_PASSWORD);
+		$conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+		$stmt = $conn->prepare('SELECT `county_id` FROM `county` WHERE `county_name` = :countyName');
+		$stmt->bindParam(':countyName', $countyName, PDO::PARAM_STR);
+	  $stmt->execute();
+    $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
+		$countyId = (int)$result[0]['county_id'];
+
+		return $countyId;
+
+	    }
+	catch(PDOException $e) {
+	    echo 'ERROR: ' . $e->getMessage();
+	}
+}
+
+function getHouseTypeId($houseType) {
+	try {
+		$conn = new PDO('mysql:host=localhost;dbname=' . DB_DATABASE, DB_USER, DB_PASSWORD);
+		$conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+		$stmt = $conn->prepare('SELECT `house_type_id` FROM `house_type` WHERE `house_type` = :houseType');
+		$stmt->bindParam(':houseType', $houseType, PDO::PARAM_STR);
+	  $stmt->execute();
+    $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
+		$houseTypeId = (int)$result[0]['house_type_id'];
+
+		return $houseTypeId;
+
+	    }
+	catch(PDOException $e) {
+	    echo 'ERROR: ' . $e->getMessage();
+	}
+}
+
 function validateSubmissionTried() {
 
 	// $tried is hidden input, value only created after user tries to submit.
@@ -66,13 +137,14 @@ function savePropertyDetails() {
 	$addressLine1 = $_POST['address_line_1'];
 	$addressLine2 = isset($_POST['address_line_2']) ? $_POST['address_line_2'] : ""; 
 	$town = $_POST['town'];
-	$county_name = $_POST['county_name'];
 	$monetaryValue = $_POST['monetary_value'];
 	$propertyImageName = uploadFiles() ? basename( $_FILES['property_image']['name']) : "default_house.jpg"; // If the file does not upload succesfully assign the default
-	//temporaily use dummy info for county_id
-	$countyId = 3;
-	//$house_type = $_POST['house_type_name'];
-	$houseTypeId = 4;
+	
+	$countyName = $_POST['county_name'];
+	$countyId = getCountyId($countyName);
+
+	$houseType = $_POST['house_type'];
+	$houseTypeId = getHouseTypeId($houseType);
 	$propertyIsSold = true;
 	
 	
