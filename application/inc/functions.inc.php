@@ -68,17 +68,16 @@ function savePropertyDetails() {
 	$town = $_POST['town'];
 	$county_name = $_POST['county_name'];
 	$monetaryValue = $_POST['monetary_value'];
-	$propertyImageName = basename( $_FILES['property_image']['name']);
+	$propertyImageName = uploadFiles() ? basename( $_FILES['property_image']['name']) : "default_house.jpg"; // If the file does not upload succesfully assign the default
 	//temporaily use dummy info for county_id
 	$countyId = 3;
 	//$house_type = $_POST['house_type_name'];
 	$houseTypeId = 4;
 	$propertyIsSold = true;
 	
-	// Post all needed data to the address table and get the address_id back as need to post that to property table
-	$insertedAddressId = saveAddress($addressLine1, $addressLine2, $town, $countyId);
-	// Post data to the property table
-	saveProperty($insertedAddressId, $houseTypeId, $monetaryValue, $propertyIsSold, $propertyImageName);
+	
+	$insertedAddressId = saveAddress($addressLine1, $addressLine2, $town, $countyId); // Post all needed data to the address table and get the address_id back as need to post that to property table
+	saveProperty($insertedAddressId, $houseTypeId, $monetaryValue, $propertyIsSold, $propertyImageName); 	// Post data to the property table
 	header("Location: view.php");
 }
 
@@ -119,6 +118,17 @@ function saveProperty($addressId, $houseTypeId, $monetaryValue, $propertyIsSold,
 	    echo 'ERROR: ' . $e->getMessage();
 	}
 
+}
+
+function uploadFiles() {
+	if (move_uploaded_file($_FILES['property_image']['tmp_name'], UPLOAD_PATH
+		. '/' .$_FILES['property_image']['name'])) {
+		$fileUploadedSuccessfully = true;
+	}
+	else {
+		$fileUploadedSuccessfully = false;
+	}	
+	return $fileUploadedSuccessfully;
 }
 
 

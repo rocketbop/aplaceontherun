@@ -11,6 +11,7 @@ define ( "MY_APP", 1 );
 // Set up a constant to your main application path
 define ( "APPLICATION_PATH", "application" );
 define ( "TEMPLATE_PATH", APPLICATION_PATH . "/view" );
+define ( "UPLOAD_PATH",  realpath(dirname(__FILE__)) . "/uploads");
 
 //Includes
 include (APPLICATION_PATH . "/inc/config.inc.php");

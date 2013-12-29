@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.16, created on 2013-12-28 18:35:45
+<?php /* Smarty version Smarty-3.1.16, created on 2013-12-29 14:10:08
          compiled from "vendor/smarty/templates/private/table.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:117665295952bec28419aae4-20017142%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '3bbf0039e5d8fb1be9d71c6f70c902d0d347568a' => 
     array (
       0 => 'vendor/smarty/templates/private/table.tpl',
-      1 => 1388252144,
+      1 => 1388322607,
       2 => 'file',
     ),
   ),
@@ -51,7 +51,9 @@ $_smarty_tpl->tpl_vars['property']->_loop = true;
 </td>
 							<td><?php echo $_smarty_tpl->tpl_vars['property']->value['county_name'];?>
 </td>
-							<td></td>
+							<td><img src="uploads/<?php echo $_smarty_tpl->tpl_vars['property']->value['image_name'];?>
+" alt="<?php echo $_smarty_tpl->tpl_vars['property']->value['image_name'];?>
+" width="150px"></td>
 							<td><?php echo $_smarty_tpl->tpl_vars['property']->value['house_type'];?>
 </td>
 							<td><?php echo $_smarty_tpl->tpl_vars['property']->value['monetary_value'];?>

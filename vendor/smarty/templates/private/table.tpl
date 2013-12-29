@@ -18,7 +18,7 @@
 							<td>{$property.property_id}</td>
 							<td>{$property.address_line_1}</td>
 							<td>{$property.county_name}</td>
-							<td></td>
+							<td><img src="uploads/{$property.image_name}" alt="{$property.image_name}" width="150px"></td>
 							<td>{$property.house_type}</td>
 							<td>{$property.monetary_value}</td>
 						</tr>
